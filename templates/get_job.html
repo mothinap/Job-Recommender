@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Get Skills for your Future Job</h2>
+                    <h3>Please enter Job Name</h3>
+                </hgroup>
+                <form class="grid" style="grid-template-columns: 1fr; grid-gap: 20px;" method="post" action="{{ url_for('getjob') }}">
+                    <input type="text" id="getjob" name="getjob" placeholder="Job Name" aria-label="Job Name" required />
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Search for jobs? <a href="{{ url_for('getjob') }}">Click here</a></p>
+            </section>
+        </div>
+    </main>
+    <script>
+        window.onload = function() {
+            {% if jobs is defined %}
+                var jobs = {{ jobs|tojson }};
+            {% else %}
+                var jobs = [];  // Initialize as empty array if jobs is undefined
+            {% endif %}
+    
+            // Rest of your JavaScript code here
+            // You can safely use the `jobs` variable from here onwards
+        }
+    </script>
+</body>
+</html>

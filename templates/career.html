@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Career Choices</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <h2>Choose Your Career Path</h2>
+                <form class="grid" style="grid-template-columns: 1fr; grid-gap: 20px;" method="post" action="{{ url_for('career') }}">
+                    <label for="gender">Gender(Male/Female):</label>
+                    <input type="text" id="gender" name="gender" placeholder="Gender" aria-label="Gender" required />
+                    
+                    <label for="confidence">Are you confident in your chosen career path? (Yes/No):</label>
+                    <input type="text" id="confidence" name="confidence" placeholder="Confidence" aria-label="Confidence" required />
+                    
+                    <label for="factors">What factors affect your career decision-making process? (Passion for a specific field/Financial stability/Job market trends/Parental expectations/Other):</label>
+                    <input type="text" id="factors" name="factors" placeholder="Factors affecting decision-making" aria-label="Factors affecting decision-making" required />
+                    
+                    <label for="choice">How did you choose your career path? (Based on financial stability/Talked to friends/family/Based on personal interests and passion/Through professional counseling/Considering my educational background and qualifications/Other: ):</label>
+                    <input type="text" id="choice" name="choice" placeholder="How did you choose your career path?" aria-label="How did you choose your career path?" required />
+            
+                    <!-- Add other form inputs for career preferences -->
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

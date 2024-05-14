@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Titles</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="#about-us">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h1>Job Titles</h1>
+                    <h3>Search Criteria: Key Skills - {{ key_skills }}</h3>
+                </hgroup><br>
+                {% if job_titles %}
+                    <p><strong>Matching Job Titles:</strong></p>
+                    <ul>
+                        {% for job_title in job_titles %}
+                            <li>{{ job_title }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No job titles found matching the entered key skills.</p>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+</body>
+</html>

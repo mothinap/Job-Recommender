@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Choosing</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+<main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Select your role</h2>
+                    <h3></h3>
+                </hgroup>
+                <div class="buttons" style="text-align: center; margin-top: 20px;">
+                    <br><button id="jobSeekerBtn" class="primary">Job Seeker(Current Openings)</button>
+                    <button id="recruiterButton" class="primary">Recruiter Login</button>
+                    <button id="skillsButton" class="primary">Search Skills for your future job</button>
+                    <button id="jobsButton" class="primary">Search Jobs for the skills you have</button>
+                    <button id="careerButton" class="primary">Empower Your Path</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script>
+        document.getElementById('jobSeekerBtn').addEventListener('click', function() {
+            window.location.href = "{{ url_for('login') }}";
+        }); 
+        document.getElementById('recruiterButton').addEventListener('click', function() {
+            window.location.href = "{{ url_for('recruiter_login') }}";
+        });
+        document.getElementById('skillsButton').addEventListener('click', function() {
+            window.location.href = "{{ url_for('getjob') }}";
+        }); 
+        document.getElementById('jobsButton').addEventListener('click', function() {
+            window.location.href = "{{ url_for('getskills') }}";
+        }); 
+        document.getElementById('careerButton').addEventListener('click', function() {
+            window.location.href = "{{ url_for('career') }}";
+        }); 
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="#about-us">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h1>Job Details</h1>
+                    <h3>Skillss for Job: {{ job_title }}</h3>
+                </hgroup><br>
+                {% if skills %}
+                <p><strong>Key Skills:</strong></p>
+                <ul>
+                    {% for skill in skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No key skills found for the job title.</p>
+            {% endif %}
+            </section>
+        </div>
+    </main>
+</body>
+</html>

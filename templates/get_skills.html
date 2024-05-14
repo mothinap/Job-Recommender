@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong><a href="{{ url_for('welcome') }}">Empower Youth</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="#about-us">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h1>Job Search</h1>
+                    <h3>Enter Key Skills</h3>
+                </hgroup><br>
+                <form class="grid" style="grid-template-columns: 1fr; grid-gap: 20px;" method="post" action="{{ url_for('getskills') }}">
+                    <input type="text" id="key_skills" name="key_skills" placeholder="Key Skills (comma-separated)" aria-label="Key Skills" required />
+                    <button type="submit">Search</button>
+                </form>
+                <p>Already have job skills? <a href="{{ url_for('getskills') }}">Click here</a> to search for jobs.</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
